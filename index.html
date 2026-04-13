@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dželo Kebab — Authentic Grilled Kebab</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Dželo Kebab — Authentic Grilled Kebab">
+    <meta property="og:description" content="The Real Kebab. No Compromises. Order online or visit us today.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://dzelokebab.com">
+    <meta property="og:type" content="website">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
+
+        :root {
+            --charcoal: #1a1a1a;
+            --orange: #E85D04;
+            --cream: #FDF3E3;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--orange);
+            color: var(--white);
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(232, 93, 4, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 12px rgba(232, 93, 4, 0.4);
+            background-color: #ff6a00;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            border-radius: 4px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--charcoal);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 30px;
+                align-items: center;
+            }
+
+            .nav-links a {
+                color: var(--white);
+                font-weight: 500;
+                transition: var(--transition);
+            }
+
+            .nav-links a:hover {
+                color: var(--orange);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.8)), url('https://images.unsplash.com/photo-1561651823-34feb02250e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            color: var(--white);
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+            color: #e0e0e0;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        @media (min-width: 576px) {
+            .hero-btns {
+                flex-direction: row;
+            }
+            .hero h1 {
+                font-size: 5rem;
+            }
+            .hero p {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background-color: var(--orange);
+            color: var(--white);
+            padding: 20px 0;
+        }
+
+        .trust-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .trust-item {
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Section Defaults */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--charcoal);
+        }
+
+        .section-title span {
+            color: var(--orange);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Menu Highlights */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .menu-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .menu-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 4px solid var(--orange);
+        }
+
+        .menu-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .menu-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .menu-desc {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .menu-price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: var(--orange);
+            font-weight: 700;
+        }
+
+        /* Why Us */
+        .why-us {
+            background-color: var(--charcoal);
+            color: var(--white);
+        }
+
+        .why-us .section-title {
+            color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--orange);
+        }
+
+        .feature-desc {
+            color: #ccc;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .stars {
+            color: var(--orange);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .quote {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .author {
+            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(232, 93, 4, 0.9), rgba(232, 93, 4, 0.9)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            text-align: center;
+            color: var(--white);
+            padding: 100px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--white);
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        @media (min-width: 576px) {
+            .cta-btns {
+                flex-direction: row;
+            }
+        }
+
+        .cta-section .btn-primary {
+            background-color: var(--charcoal);
+            color: var(--white);
+            box-shadow: 0 4px 6px rgba(26, 26, 26, 0.3);
+        }
+
+        .cta-section .btn-primary:hover {
+            background-color: #000;
+            box-shadow: 0 6px 12px rgba(26, 26, 26, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 60px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                text-align: left;
+            }
+        }
+
+        .footer-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: var(--orange);
+        }
+
+        .footer-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--orange);
+        }
+
+        .footer-info p {
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .social-icons {
+                justify-content: flex-start;
+            }
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: var(--white);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--orange);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Mobile CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            display: block;
+            box-shadow: 0 10px 20px rgba(232, 93, 4, 0.4);
+            border-radius: 50px;
+            padding: 15px 25px;
+        }
+
+        @media (min-width: 768px) {
+            .floating-cta {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">DŽELO <span>KEBAB</span></a>
+            <nav class="nav-links">
+                <a href="#menu">Menu</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#reviews">Reviews</a>
+            </nav>
+            <a href="#order" class="btn btn-primary" style="padding: 8px 16px; font-size: 1rem;">Order Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <h1>The Real Kebab.<br>No Compromises.</h1>
+            <p>Authentic Balkan street food. Grilled to perfection, served fresh daily.</p>
+            <div class="hero-btns">
+                <a href="#order" class="btn btn-primary">Order Now</a>
+                <a href="#menu" class="btn btn-outline">See Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="trust-container fade-in">
+            <div class="trust-item">⭐ 4.9 on Google</div>
+            <div class="trust-item">🔥 Since 2008</div>
+            <div class="trust-item">🚀 30-min Delivery</div>
+            <div class="trust-item">🏆 Best Kebab in Town</div>
+        </div>
+    </div>
+
+    <!-- Menu Highlights -->
+    <section id="menu" class="container">
+        <h2 class="section-title fade-in">Signature <span>Kebabs</span></h2>
+        <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="menu-card fade-in">
+                <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Classic Doner" class="menu-img">
+                <div class="menu-content">
+                    <h3 class="menu-title">The Classic Doner</h3>
+                    <p class="menu-desc">Juicy beef and lamb mix, fresh veggies, signature garlic sauce in warm pita.</p>
+                    <div class="menu-price">€6.50</div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="menu-card fade-in" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Balkan Cevapi" class="menu-img">
+                <div class="menu-content">
+                    <h3 class="menu-title">Balkan Ćevapi</h3>
+                    <p class="menu-desc">10 grilled minced meat rolls, somun bread, chopped onions, and kajmak.</p>
+                    <div class="menu-price">€8.00</div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="menu-card fade-in" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1626804475297-41609ea0d4eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chicken Durum" class="menu-img">
+                <div class="menu-content">
+                    <h3 class="menu-title">Spicy Chicken Dürüm</h3>
+                    <p class="menu-desc">Marinated grilled chicken, spicy yogurt sauce, wrapped in a thin flatbread.</p>
+                    <div class="menu-price">€7.00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+            <h2 class="section-title fade-in">Why Choose <span>Dželo</span></h2>
+            <div class="features-grid">
+                <div class="feature fade-in">
+                    <div class="feature-icon">🥩</div>
+                    <h3 class="feature-title">100% Fresh Meat</h3>
+                    <p class="feature-desc">No frozen patties. We prepare and marinate our meat fresh every single morning.</p>
+                </div>
+                <div class="feature fade-in" style="transition-delay: 0.1s;">
+                    <div class="feature-icon">🌶️</div>
+                    <h3 class="feature-title">Secret Recipe</h3>
+                    <p class="feature-desc">Our spice blend and signature sauces have been a family secret for over 15 years.</p>
+                </div>
+                <div class="feature fade-in" style="transition-delay: 0.2s;">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-desc">Hungry? We serve it hot and fast. Average wait time is under 5 minutes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="reviews" class="container">
+        <h2 class="section-title fade-in">What Locals <span>Say</span></h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"Honestly the best kebab I've had in the city. The meat is incredibly juicy and the garlic sauce is addictive. I come here at least twice a week."</p>
+                <div class="author">— Marko K.</div>
+            </div>
+            <div class="testimonial-card fade-in" style="transition-delay: 0.1s;">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"Fast delivery, food arrived piping hot. The portions are huge for the price. Highly recommend the Balkan Ćevapi!"</p>
+                <div class="author">— Ana S.</div>
+            </div>
+            <div class="testimonial-card fade-in" style="transition-delay: 0.2s;">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"Real authentic street food vibe. The staff is always friendly and the quality never drops. Dželo never disappoints."</p>
+                <div class="author">— Denis M.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="order" class="cta-section fade-in">
+        <div class="container">
+            <h2>Hungry? Order in 2 minutes.</h2>
+            <div class="cta-btns">
+                <a href="tel:+38761123456" class="btn btn-primary">📞 Call to Order</a>
+                <a href="#" class="btn btn-outline">🛒 Order Online</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content fade-in">
+            <div class="footer-info">
+                <div class="footer-logo">DŽELO <span>KEBAB</span></div>
+                <p>Authentic Balkan street food made with passion, fire, and the best ingredients.</p>
+            </div>
+            <div class="footer-info">
+                <h4>Visit Us</h4>
+                <p>Titova 45, 71000 Sarajevo</p>
+                <p>Bosnia and Herzegovina</p>
+                <p>📞 +387 61 123 456</p>
+            </div>
+            <div class="footer-info">
+                <h4>Opening Hours</h4>
+                <p>Mon - Thu: 10:00 - 02:00</p>
+                <p>Fri - Sat: 10:00 - 05:00</p>
+                <p>Sun: 12:00 - 00:00</p>
+                <div class="social-icons" style="margin-top: 15px;">
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Facebook">FB</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright fade-in">
+            &copy; 2026 Dželo Kebab. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Floating Mobile CTA -->
+    <a href="#order" class="btn btn-primary floating-cta">Order Now</a>
+
+    <!-- Intersection Observer Script for Fade-in Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
